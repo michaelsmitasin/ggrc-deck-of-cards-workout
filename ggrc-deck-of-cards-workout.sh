@@ -5,7 +5,7 @@
 # where the number of reps is the number on the card. Repeat for the second half, but with different activities.
 
 SUITS="hearts clubs diamonds spades"
-RANKS="1x 2x 3x 4x 5x 6x 7x 8x 9x 10x 10x 10x 10x"
+RANKS="1x 2x 3x 4x 5x 6x 7x 8x 9x a10x b10x c10x d10x"
 SETNUM="54"
 
 # Build the deck of SUITS x RANKS
@@ -25,11 +25,11 @@ DECK=$(MAKEFULLDECK)
 FULLDECK="$DECK 50x-jumping-jacks 10x-burpees"
 
 # Shuffle the deck
-SHUFFLEDDECK=$(echo $FULLDECK | tr " " "\n" | sort -R)
+SHUFFLEDDECK=$(echo $FULLDECK | tr " " "\n" | sort -R | sed '
 
 # Split the deck in half and assign activities to each suit
-FIRSTHALF=$(echo "$SHUFFLEDDECK" | head -27 | sort -R | sed 's/hearts/squat-thrusts/g;s/clubs/push-ups/g;s/diamonds/calf-raise-squats/g;s/spades/sit-ups/g')
-SECONDHALF=$(echo "$SHUFFLEDDECK" | tail -27 | sort -R | sed 's/hearts/jumping-jacks/g;s/clubs/standing-dumbbell-presses/g;s/diamonds/lunges/g;s/spades/standing-side-crunches/g')
+FIRSTHALF=$(echo "$SHUFFLEDDECK" | head -27 | sed 's/hearts/squat-thrusts/g;s/clubs/push-ups/g;s/diamonds/calf-raise-squats/g;s/spades/sit-ups/g')
+SECONDHALF=$(echo "$SHUFFLEDDECK" | tail -27 | sed 's/hearts/jumping-jacks/g;s/clubs/standing-dumbbell-presses/g;s/diamonds/lunges/g;s/spades/standing-side-crunches/g')
 
 # Recombine the halves
 ALLSETS="$FIRSTHALF $SECONDHALF"
