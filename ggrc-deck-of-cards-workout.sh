@@ -25,7 +25,7 @@ DECK=$(MAKEFULLDECK)
 FULLDECK="$DECK 50x-jumping-jacks 10x-burpees"
 
 # Shuffle the deck
-SHUFFLEDDECK=$(echo $FULLDECK | tr " " "\n" | sort -R | sed '
+SHUFFLEDDECK=$(echo $FULLDECK | tr " " "\n" | sort -R | sed 's/[abcd]10x/10x/g')
 
 # Split the deck in half and assign activities to each suit
 FIRSTHALF=$(echo "$SHUFFLEDDECK" | head -27 | sed 's/hearts/squat-thrusts/g;s/clubs/push-ups/g;s/diamonds/calf-raise-squats/g;s/spades/sit-ups/g')
