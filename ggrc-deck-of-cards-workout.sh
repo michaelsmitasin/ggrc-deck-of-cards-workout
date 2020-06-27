@@ -5,7 +5,7 @@
 # where the number of reps is the number on the card. Repeat for the second half, but with different activities.
 
 SUITS="hearts clubs diamonds spades"
-RANKS="1x 2x 3x 4x 5x 6x 7x 8x 9x 10x 10x 10x"
+RANKS="1x 2x 3x 4x 5x 6x 7x 8x 9x 10x 10x 10x 10x"
 SETNUM="54"
 
 # Build the deck of SUITS x RANKS
